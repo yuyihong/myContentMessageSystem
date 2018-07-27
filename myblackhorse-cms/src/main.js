@@ -11,6 +11,11 @@ Vue.use(MintUI)
 import './assets/mui/css/mui.css'
 import './assets/mui/css/icons-extra.css'
 
+//引入缩略图的vue-preview插件
+import VuePreview from "vue-preview"
+//使用
+Vue.use(VuePreview);
+
 Vue.config.productionTip = false
 
 new Vue({

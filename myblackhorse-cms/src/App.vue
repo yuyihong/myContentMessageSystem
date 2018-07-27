@@ -2,7 +2,7 @@
   <div id="app">
     <mt-header fixed title="内容信息系统">
       <router-link to="/" slot="left">
-        <mt-button icon="back">返回</mt-button>
+        <mt-button v-if="$route.path != '/' " icon="back">返回</mt-button>
       </router-link>
     </mt-header>
 

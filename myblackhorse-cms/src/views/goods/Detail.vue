@@ -52,9 +52,9 @@
                 </div>
             </div>
             <div class="mui-card-footer">
-                <mt-button type="primary" size="large" plain>商品描述</mt-button>
+                <mt-button type="primary" size="large" plain @click="$router.push('/goods/desc?id=' + $route.query.id)">商品描述</mt-button>
                  <br>
-                <mt-button type="danger" size="large" plain>商品评论</mt-button>
+                <mt-button type="danger" size="large" plain @click="$router.push('/goods/comment?id=' + $route.query.id)">商品评论</mt-button>
             </div>
         </div>
         </div>

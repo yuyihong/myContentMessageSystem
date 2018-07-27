@@ -9,6 +9,10 @@ import Search from './views/tabbar/Search.vue'
 import NewsList from './views/news/List.vue'
 import NewsDetail from './views/news/Detail.vue'
 
+//引入图片分享相关的组件
+import PicList from "./views/picshare/List.vue"
+import PicDetail from "./views/picshare/Detail.vue"
+
 Vue.use(Router)
 
 export default new Router({
@@ -36,6 +40,18 @@ export default new Router({
     {
       path: '/news/detail',
       component: NewsDetail
+    },
+      // ：参数  后面如果加上? 表示这个参数可有可无
+
+      // 用户既可以通过 /pic/list 来访问这个页面
+      // 也可以通过 /pic/list/19  来访问这个页面
+    {
+      path: '/pic/list',
+      component: PicList
+    },
+    {
+      path: '/pic/detail',
+      component: PicDetail
     },
   ]
 })

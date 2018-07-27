@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <mt-header fixed title="内容信息系统">
-      <router-link to="/" slot="left">
-        <mt-button v-if="$route.path != '/' " icon="back">返回</mt-button>
-      </router-link>
+        <mt-button v-if="$route.path != '/'" icon="back" slot="left"  @click="$router.go(-1)">返回</mt-button>
     </mt-header>
 
     <router-view></router-view>

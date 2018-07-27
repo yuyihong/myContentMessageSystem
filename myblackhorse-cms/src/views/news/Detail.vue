@@ -1,13 +1,13 @@
 <template>
   <div class="page news">
-    <div class="news-detail">
-      <div class="news-title">
+    <div class="newsdetail">
+      <div class="newstitle">
         <h4>{{newsInfo.title}}</h4>
         <p class="news-info">
           <span>发表时间:{{newsInfo.add_time}}</span>
           <span class="mui-pull-right">点击： {{newsInfo.click}}次</span>
         </p> <hr></div>
-      <div class="news-content" v-html="newsInfo.content"></div>
+      <div class="newscontent" v-html="newsInfo.content"></div>
     </div>
     <div class="comment">
       <Comment :artid="$route.query.id"></Comment>

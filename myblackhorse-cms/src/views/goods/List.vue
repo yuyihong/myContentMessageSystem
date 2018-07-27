@@ -3,44 +3,61 @@
 
         <div class="goods-item" v-for="(item,index) in goodsList" :key="index">
             <!-- <router-link> -->
-                <img :src="item.img_url">
-                <h4>{{item.title}}</h4>
-                <div class="info">
-                    <p class="price">
-                        <span class="nowPrice">￥{{item.sell_price}}</span>
-                        <span>
-                            <del>￥{{item.market_price}}</del>
-                        </span>
-                    </p>
-                    <p class="sale">
-                        <span>热卖中</span>
-                        <span>剩{{item.stock_quantity}}件</span>
-                    </p>
-                </div>
+            <img :src="item.img_url">
+            <h4>{{item.title}}</h4>
+            <div class="info">
+                <p class="price">
+                    <span class="nowPrice">￥{{item.sell_price}}</span>
+                    <span>
+                        <del>￥{{item.market_price}}</del>
+                    </span>
+                </p>
+                <p class="sale">
+                    <span>热卖中</span>
+                    <span>剩{{item.stock_quantity}}件</span>
+                </p>
+            </div>
             <!-- </router-link> -->
         </div>
 
-        <mt-button type="danger"  size="large" plain>加载更多</mt-button>
+        <mt-button :disabled="isNoMoreData" type="danger" @click="more" size="large" plain>加载更多</mt-button>
 
     </div>
 </template>
 
 <script>
 import axios from "axios";
+import {Toast} from "mint-ui"
 export default {
   data() {
     return {
       goodsList: [],
-      pageIndex: 1
+      pageIndex: 1,
+      isNoMoreData:false
     };
   },
   created() {
-    axios({
-      url:"http://www.liulongbin.top:3005/api/getgoods?pageindex=" + this.pageIndex
-    }).then(res => {
-      console.log(res.data.message);
-      this.goodsList = res.data.message;
-    });
+      this.getData();
+  },
+  methods: {
+    more(){
+        this.pageIndex ++;
+        this.getData();
+    },
+    //封装动态渲染的代码,以便点击加载更多的时候拼接下一页
+    getData() {
+      axios({
+        url:
+          "http://www.liulongbin.top:3005/api/getgoods?pageindex=" + this.pageIndex
+      }).then(res => {
+        // console.log(res.data.message);
+        this.goodsList =this.goodsList.concat(res.data.message);
+        if(res.data.message.length == 0 ){
+            this.isNoMoreData = true;
+            Toast("没有数据了,不要点了,我累了")
+        }
+      });
+    }
   }
 };
 </script>

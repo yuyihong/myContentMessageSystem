@@ -46,11 +46,11 @@ export default new Router({
       // 用户既可以通过 /pic/list 来访问这个页面
       // 也可以通过 /pic/list/19  来访问这个页面
     {
-      path: '/pic/list',
+      path: '/pic/list/:cateid?',
       component: PicList
     },
     {
-      path: '/pic/detail',
+      path: '/pic/detail/:id',
       component: PicDetail
     },
   ]

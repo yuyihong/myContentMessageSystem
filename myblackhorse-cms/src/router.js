@@ -13,6 +13,10 @@ import NewsDetail from './views/news/Detail.vue'
 import PicList from "./views/picshare/List.vue"
 import PicDetail from "./views/picshare/Detail.vue"
 
+//引入商品购买相关的组件
+import GoodsList from "./views/goods/List.vue"
+import GoodsDetail from "./views/goods/Detail.vue"
+
 Vue.use(Router)
 
 export default new Router({
@@ -52,6 +56,16 @@ export default new Router({
     {
       path: '/pic/detail/:id',
       component: PicDetail
+    },
+    
+    {
+      path: '/goods/detail',
+      component: GoodsDetail
+    },
+    
+    {
+      path: '/goods/list',
+      component: GoodsList
     },
   ]
 })

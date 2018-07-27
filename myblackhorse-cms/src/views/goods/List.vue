@@ -2,7 +2,7 @@
     <div class="page goods-list">
 
         <div class="goods-item" v-for="(item,index) in goodsList" :key="index">
-            <!-- <router-link> -->
+            <router-link :to="'/goods/detail?id='+item.id">
             <img :src="item.img_url">
             <h4>{{item.title}}</h4>
             <div class="info">
@@ -17,7 +17,7 @@
                     <span>剩{{item.stock_quantity}}件</span>
                 </p>
             </div>
-            <!-- </router-link> -->
+            </router-link>
         </div>
 
         <mt-button :disabled="isNoMoreData" type="danger" @click="more" size="large" plain>加载更多</mt-button>

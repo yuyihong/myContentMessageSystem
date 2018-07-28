@@ -17,7 +17,7 @@
         <ul>
             <li v-for="(item,index) in imgList" :key="index">
                 <router-link :to="'/pic/detail/' + item.id">
-                    <img :src="item.img_url">
+                    <img v-lazy="item.img_url">
                     <div class="info">
                         <h5>{{item.title}}</h5>
                         {{item.zhaiyao}}
@@ -115,6 +115,13 @@ h5 {
   text-overflow: ellipsis;
   overflow: hidden;
   line-height: 38px;
+}
+
+img[lazy=loading] {
+  width: 40px;
+  height: 300px;
+  margin: auto;
+  display: block;
 }
 </style>
 

@@ -16,6 +16,8 @@ import VuePreview from "vue-preview"
 //使用
 Vue.use(VuePreview);
 
+import store from "./store"
+
 Vue.config.productionTip = false
 
 new Vue({

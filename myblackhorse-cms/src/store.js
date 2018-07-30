@@ -45,7 +45,7 @@ export default new Vuex.Store({
     },
     getters:{
         totalCount(state){
-            let num = 0;
+            let sum = 0;
             state.cartList.forEach(function(v){
                 sum += v.count
             })

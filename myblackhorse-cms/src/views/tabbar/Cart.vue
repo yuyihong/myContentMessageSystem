@@ -185,7 +185,7 @@ export default {
         // console.log("商品数量发生变化了");
         // 只要数量一发生变化，我们就需要更新vuex中的购物车数据
         // 更新购物车数据，只需要 触发 mutation updateCount
-        this.$store.commit("updateCount", this.goodsList);
+        this.$store.commit("updateCart", this.goodsList);
       },
       deep: true
     }

@@ -1,14 +1,6 @@
 <template>
   <div class="page news">
-    <div class="news-detail">
-      <div class="news-title">
-        <h4>{{newsInfo.title}}</h4>
-        <p class="news-info">
-          <span>发表时间:{{newsInfo.add_time}}</span>
-          <span class="mui-pull-right">点击： {{newsInfo.click}}次</span>
-        </p> <hr></div>
-      <div class="news-content" v-html="newsInfo.content"></div>
-    </div>
+    <Info :info="newsInfo"></Info>
     <div class="comment">
       <Comment :artid="$route.query.id"></Comment>
     </div>
@@ -18,6 +10,7 @@
 <script>
 import axios from "axios";
 import Comment from '@/components/comment.vue'
+import Info from "@/components/Info.vue"
 export default {
   data() {
     return {
@@ -35,6 +28,7 @@ export default {
     });
   },
   components:{
+    Info,
     Comment
   }
 };
